@@ -1,5 +1,8 @@
 // Trilhas de certificação Databricks — réplica do programa do app Certifica (santander-certifica.vercel.app)
 // Cursos com links reais da Databricks Academy (catálogo PT-BR).
+// App Certifica real (tenant Heineken) — plataforma interativa de certificação Databricks
+export const CERTIFICA_APP_URL = 'https://certifica-7474647325287912.aws.databricksapps.com/t/heineken'
+
 export type Level = 'fundamentos' | 'associate' | 'professional'
 export interface TrailClass { id: string; title: string; level: Level; duration: string; url: string }
 export interface Trail { name: string; description: string; certificationId: string; certificationName: string; classes: TrailClass[] }

@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
-import { Search, Users, TrendingUp, Sparkles, Globe, Map } from 'lucide-react'
+import { Search, Users, TrendingUp, Sparkles, Globe, Map, ExternalLink } from 'lucide-react'
 import { participants, type Participant } from './data'
 import Trails from './Trails'
+import { CERTIFICA_APP_URL } from './trailsData'
 
 type View = 'participantes' | 'trilhas'
 
@@ -33,7 +34,7 @@ function interestMeta(v: string) {
 }
 
 export default function App() {
-  const [view, setView] = useState<View>('participantes')
+  const [view, setView] = useState<View>('trilhas')
   const total = participants.length
   return (
     <div className="app">
@@ -45,14 +46,19 @@ export default function App() {
             <span className="brand-divider" />
             <span className="brand-dbx"><span className="dot" /> Databricks</span>
           </div>
-          <nav className="nav-tabs">
-            <button className={view === 'participantes' ? 'active' : ''} onClick={() => setView('participantes')}>
-              <Users size={15} /> Participantes
-            </button>
-            <button className={view === 'trilhas' ? 'active' : ''} onClick={() => setView('trilhas')}>
-              <Map size={15} /> Trilhas
-            </button>
-          </nav>
+          <div className="topbar-right">
+            <nav className="nav-tabs">
+              <button className={view === 'trilhas' ? 'active' : ''} onClick={() => setView('trilhas')}>
+                <Map size={15} /> Trilhas
+              </button>
+              <button className={view === 'participantes' ? 'active' : ''} onClick={() => setView('participantes')}>
+                <Users size={15} /> Participantes
+              </button>
+            </nav>
+            <a className="topbar-cta" href={CERTIFICA_APP_URL} target="_blank" rel="noreferrer">
+              Acessar o Certifica <ExternalLink size={14} />
+            </a>
+          </div>
         </div>
       </header>
 

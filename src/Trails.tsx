@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Map, ChevronRight, ExternalLink, ArrowLeft, GraduationCap, BookOpen } from 'lucide-react'
-import { trails, type Level, type Trail } from './trailsData'
+import { trails, CERTIFICA_APP_URL, type Level, type Trail } from './trailsData'
 
 const LEVELS: { key: Level; label: string }[] = [
   { key: 'fundamentos', label: 'Fundamentos' },
@@ -25,10 +25,15 @@ export default function Trails() {
         <h2><Map size={19} style={{ verticalAlign: -3, marginRight: 6 }} />Trilhas de certificação</h2>
         <span className="count">{trails.length} trilhas · {trails.reduce((n, t) => n + t.classes.length, 0)} cursos</span>
       </div>
-      <p className="muted" style={{ marginBottom: 18, maxWidth: 680 }}>
+      <p className="muted" style={{ marginBottom: 14, maxWidth: 680 }}>
         Réplica do programa de certificação Databricks. Escolha uma trilha para ver os cursos
         oficiais da Databricks Academy, organizados por nível, com a certificação-alvo.
       </p>
+      <a className="trail-app-cta" href={CERTIFICA_APP_URL} target="_blank" rel="noreferrer">
+        <GraduationCap size={17} />
+        <span>Acessar a plataforma Certifica — simulados, flashcards e progresso</span>
+        <ExternalLink size={15} />
+      </a>
       <div className="trail-grid">
         {trails.map((t, i) => (
           <button key={i} className="trail-card" onClick={() => setSel(i)}>
@@ -60,6 +65,11 @@ function TrailDetail({ trail, onBack }: { trail: Trail; onBack: () => void }) {
         <div className="trail-hero-cert">
           <GraduationCap size={16} />
           <span>Certificação-alvo: <b>{trail.certificationName}</b></span>
+        </div>
+        <div>
+          <a className="trail-hero-cta" href={CERTIFICA_APP_URL} target="_blank" rel="noreferrer">
+            Praticar no Certifica <ExternalLink size={15} />
+          </a>
         </div>
       </div>
 

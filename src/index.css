@@ -75,6 +75,13 @@ button, input, select { font-family: inherit; }
 .link-btn { border: none; background: none; color: var(--brand-text-secondary); font-weight: 600; font-size: 13px; padding: 6px 0; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 12px; }
 .link-btn:hover { color: var(--brand-primary); }
 
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.topbar-cta {
+  display: inline-flex; align-items: center; gap: 7px; background: var(--brand-primary); color: #fff;
+  font-weight: 700; font-size: 13px; padding: 8px 14px; border-radius: var(--radius); white-space: nowrap;
+}
+.topbar-cta:hover { background: var(--brand-primary-dark); text-decoration: none; }
+
 /* ── Hero ──────────────────────────────────────────────────── */
 .hero {
   background: linear-gradient(135deg, var(--brand-primary-dark), var(--brand-primary));
@@ -163,6 +170,16 @@ button, input, select { font-family: inherit; }
 .trail-hero h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.3px; }
 .trail-hero p { opacity: 0.92; margin-top: 6px; max-width: 640px; line-height: 1.5; }
 .trail-hero-cert { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.28); padding: 7px 13px; border-radius: 20px; font-size: 13px; }
+.trail-hero-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; background: #fff; color: var(--brand-primary-dark); font-weight: 800; font-size: 14px; padding: 11px 20px; border-radius: var(--radius); }
+.trail-hero-cta:hover { background: #f0f4f0; text-decoration: none; }
+
+.trail-app-cta {
+  display: flex; align-items: center; gap: 11px; background: var(--brand-primary-pale);
+  border: 1px solid color-mix(in srgb, var(--brand-primary), white 70%); color: var(--brand-primary-dark);
+  font-weight: 700; font-size: 13.5px; padding: 13px 16px; border-radius: var(--radius-lg); margin-bottom: 22px;
+}
+.trail-app-cta span { flex: 1; }
+.trail-app-cta:hover { border-color: var(--brand-primary); background: color-mix(in srgb, var(--brand-primary), white 86%); text-decoration: none; }
 
 .trail-level { margin-bottom: 22px; }
 .trail-level-h { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
@@ -198,4 +215,6 @@ button, input, select { font-family: inherit; }
 @media (max-width: 540px) {
   .kpis { grid-template-columns: 1fr; }
   .u-name .em { display: none; }
+  .topbar-cta { display: none; }
+  .trail-app-cta { font-size: 12.5px; }
 }
