@@ -62,6 +62,19 @@ button, input, select { font-family: inherit; }
 .brand-dbx .dot { width: 9px; height: 9px; border-radius: 2px; background: #ff3621; }
 .topbar-tag { font-size: 12px; font-weight: 700; color: var(--brand-primary); background: var(--brand-primary-pale); padding: 5px 11px; border-radius: 20px; }
 
+/* ── Nav tabs ──────────────────────────────────────────────── */
+.nav-tabs { display: flex; gap: 4px; }
+.nav-tabs button {
+  display: inline-flex; align-items: center; gap: 7px; border: none; background: none;
+  color: var(--brand-text-secondary); font-weight: 700; font-size: 13.5px; padding: 8px 14px;
+  border-radius: var(--radius); transition: all 0.15s ease;
+}
+.nav-tabs button:hover { background: var(--brand-primary-pale); color: var(--brand-primary); }
+.nav-tabs button.active { background: var(--brand-primary); color: #fff; }
+
+.link-btn { border: none; background: none; color: var(--brand-text-secondary); font-weight: 600; font-size: 13px; padding: 6px 0; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 12px; }
+.link-btn:hover { color: var(--brand-primary); }
+
 /* ── Hero ──────────────────────────────────────────────────── */
 .hero {
   background: linear-gradient(135deg, var(--brand-primary-dark), var(--brand-primary));
@@ -130,6 +143,45 @@ button, input, select { font-family: inherit; }
 .tag-new { background: var(--brand-warning-bg); color: var(--brand-warning); }
 .tag-exp { background: #eef1ee; color: #5a665e; }
 
+/* ── Trilhas ───────────────────────────────────────────────── */
+.trail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.trail-card {
+  text-align: left; background: var(--brand-surface); border: 1px solid var(--brand-border);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 22px; cursor: pointer;
+  display: flex; flex-direction: column; gap: 8px; transition: all 0.18s ease; animation: fadeIn 0.3s ease;
+}
+.trail-card:hover { border-color: var(--brand-primary); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.trail-card-top { display: flex; align-items: center; justify-content: space-between; }
+.trail-icon { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: var(--brand-primary-pale); color: var(--brand-primary); }
+.trail-chev { color: var(--brand-text-muted); }
+.trail-card h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.2px; }
+.trail-card p { font-size: 13px; line-height: 1.5; }
+.trail-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 8px; }
+.cert-badge { background: var(--brand-info-bg); color: var(--brand-info); }
+
+.trail-hero { background: linear-gradient(135deg, var(--brand-primary-dark), var(--brand-primary)); color: #fff; border-radius: var(--radius-lg); padding: 26px; margin: 6px 0 22px; }
+.trail-hero h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.3px; }
+.trail-hero p { opacity: 0.92; margin-top: 6px; max-width: 640px; line-height: 1.5; }
+.trail-hero-cert { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.28); padding: 7px 13px; border-radius: 20px; font-size: 13px; }
+
+.trail-level { margin-bottom: 22px; }
+.trail-level-h { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.lvl-fund { background: var(--brand-success-bg); color: var(--brand-success); }
+.lvl-assoc { background: var(--brand-info-bg); color: var(--brand-info); }
+.lvl-prof { background: #ede7f6; color: #6a1b9a; }
+.tag-free { background: var(--brand-success-bg); color: var(--brand-success); }
+
+.trail-classes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.trail-class {
+  display: flex; align-items: center; gap: 12px; background: var(--brand-surface);
+  border: 1px solid var(--brand-border); border-radius: var(--radius); padding: 13px 15px;
+  color: var(--brand-text); transition: all 0.15s ease;
+}
+.trail-class:hover { border-color: var(--brand-primary); background: var(--brand-primary-pale); text-decoration: none; }
+.trail-class-ic { width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center; background: var(--brand-primary); color: #fff; flex-shrink: 0; }
+.trail-class h4 { font-size: 13.5px; font-weight: 700; margin: 0; }
+.trail-class-meta { display: flex; align-items: center; gap: 10px; margin-top: 5px; font-size: 12px; color: var(--brand-text-secondary); }
+
 /* ── Footer ────────────────────────────────────────────────── */
 .footer { margin-top: auto; border-top: 1px solid var(--brand-border); background: var(--brand-surface); }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 20px 0; font-size: 12.5px; color: var(--brand-text-secondary); }
@@ -139,6 +191,9 @@ button, input, select { font-family: inherit; }
   .kpis { grid-template-columns: repeat(2, 1fr); }
   .hero h1 { font-size: 26px; }
   .col-hide { display: none; }
+  .trail-grid { grid-template-columns: 1fr; }
+  .trail-classes { grid-template-columns: 1fr; }
+  .nav-tabs button span { display: none; }
 }
 @media (max-width: 540px) {
   .kpis { grid-template-columns: 1fr; }

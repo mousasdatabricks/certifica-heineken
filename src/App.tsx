@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react'
-import { Search, Users, TrendingUp, Sparkles, Globe } from 'lucide-react'
+import { Search, Users, TrendingUp, Sparkles, Globe, Map } from 'lucide-react'
 import { participants, type Participant } from './data'
+import Trails from './Trails'
+
+type View = 'participantes' | 'trilhas'
 
 // Mapeamento EN (CSV) -> PT-BR + rank de cor
 const INTEREST: Record<string, { label: string; rank: number }> = {
@@ -30,6 +33,42 @@ function interestMeta(v: string) {
 }
 
 export default function App() {
+  const [view, setView] = useState<View>('participantes')
+  const total = participants.length
+  return (
+    <div className="app">
+      <header className="topbar">
+        <div className="wrap topbar-inner">
+          <div className="brand">
+            <span className="brand-star">★</span>
+            <span className="brand-name">HEINEKEN <span>Brasil</span></span>
+            <span className="brand-divider" />
+            <span className="brand-dbx"><span className="dot" /> Databricks</span>
+          </div>
+          <nav className="nav-tabs">
+            <button className={view === 'participantes' ? 'active' : ''} onClick={() => setView('participantes')}>
+              <Users size={15} /> Participantes
+            </button>
+            <button className={view === 'trilhas' ? 'active' : ''} onClick={() => setView('trilhas')}>
+              <Map size={15} /> Trilhas
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      {view === 'participantes' ? <Participants /> : <Trails />}
+
+      <footer className="footer">
+        <div className="wrap footer-inner">
+          <span>HEINEKEN Brasil · Programa de Certificação Databricks</span>
+          <span>Fonte: User Summary · 23/06/2026 · {total} participantes</span>
+        </div>
+      </footer>
+    </div>
+  )
+}
+
+function Participants() {
   const [q, setQ] = useState('')
   const [country, setCountry] = useState('all')
   const [interest, setInterest] = useState('all')
@@ -54,20 +93,7 @@ export default function App() {
   const newcomers = participants.filter((p) => p.newToDatabricks === 'Yes').length
 
   return (
-    <div className="app">
-      {/* Topbar */}
-      <header className="topbar">
-        <div className="wrap topbar-inner">
-          <div className="brand">
-            <span className="brand-star">★</span>
-            <span className="brand-name">HEINEKEN <span>Brasil</span></span>
-            <span className="brand-divider" />
-            <span className="brand-dbx"><span className="dot" /> Databricks</span>
-          </div>
-          <span className="topbar-tag">Programa de Certificação</span>
-        </div>
-      </header>
-
+    <>
       {/* Hero */}
       <section className="hero">
         <div className="wrap">
@@ -164,14 +190,7 @@ export default function App() {
           </div>
         </div>
       </section>
-
-      <footer className="footer">
-        <div className="wrap footer-inner">
-          <span>HEINEKEN Brasil · Programa de Certificação Databricks — LNA</span>
-          <span>Fonte: User Summary · 23/06/2026 · {total} participantes únicos</span>
-        </div>
-      </footer>
-    </div>
+    </>
   )
 }
 
