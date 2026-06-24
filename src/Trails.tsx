@@ -26,8 +26,10 @@ export default function Trails() {
         <span className="count">{trails.length} trilhas · {trails.reduce((n, t) => n + t.classes.length, 0)} cursos</span>
       </div>
       <p className="muted" style={{ marginBottom: 14, maxWidth: 680 }}>
-        Réplica do programa de certificação Databricks. Escolha uma trilha para ver os cursos
-        oficiais da Databricks Academy, organizados por nível, com a certificação-alvo.
+        As 8 trilhas do Advanced Learning Festival da Databricks (15 jun – 6 jul 2026).
+        Escolha uma trilha para ver os módulos oficiais da Databricks Academy, com a
+        certificação-alvo. Quem completa uma trilha completa ganha 50% de desconto na
+        certificação e 20% off na assinatura anual do Academy Labs.
       </p>
       <a className="trail-app-cta" href={CERTIFICA_APP_URL} target="_blank" rel="noreferrer">
         <GraduationCap size={17} />
